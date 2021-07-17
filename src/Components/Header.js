@@ -1,22 +1,27 @@
 import { useEffect } from "react";
 import WebFont from "webfontloader";
+import { Link } from "react-router-dom";
 
 function Header() {
   const styles = {
     header: {
       display: "flex",
       alignItems: "center",
-      backgroundColor: "blue",
+      backgroundColor: "black",
       height: "60px",
     },
     title: {
       fontFamily: "Lobster",
       fontSize: "40px",
       marginLeft: "20px",
+      textDecoration: "none",
+      color: "white",
     },
     loginAndCart: {
       fontSize: "20px",
       marginRight: "20px",
+      textDecoration: "none",
+      color: "white",
     },
     separator: {
       marginLeft: "auto",
@@ -33,8 +38,12 @@ function Header() {
 
   return (
     <div style={styles.header}>
-      <div style={styles.title}>My Fake E-Commerce</div>
-      <div style={{ ...styles.separator, ...styles.loginAndCart }}>Login</div>
+      <Link to="/react_ecommerce" style={styles.title}>
+        My Fake E-Commerce
+      </Link>
+      <Link to="/Register" style={{ ...styles.separator, ...styles.loginAndCart }}>
+        Register
+      </Link>
       <div style={styles.loginAndCart}>Shopping Cart</div>
     </div>
   );
