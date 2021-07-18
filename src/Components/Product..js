@@ -1,8 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 
 function Product(props) {
-  const { title, price, image } = props.products;
+  const { title, price, image, id } = props.products;
   const style = {
     centerItems: {
       display: "flex",
@@ -21,16 +22,24 @@ function Product(props) {
     buttonSpacing: {
       float: "right",
     },
+    image: {
+      height: "150px",
+    },
+    linkStyle: {
+      textDecoration: "none",
+      color: "inherit",
+    },
   };
-  console.log(props.products);
   return (
     <div style={style.border}>
       <div style={style.centerItems}>
-        <img src={image} alt={title} height="150px" />
+        <img src={image} alt={title} style={style.image} />
       </div>
       <h2 style={style.h2}>{title}</h2>
       <p>U${price}</p>
-      <Button variant="outline-primary">Details</Button>
+      <Button variant="outline-secondary">
+        <Link to={"product/" + id} style={style.linkStyle}>Details</Link>
+      </Button>
       <Button variant="success" style={style.buttonSpacing}>
         Add to Cart
       </Button>

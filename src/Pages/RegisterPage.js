@@ -34,7 +34,7 @@ function RegisterPage() {
           <Form.Control type="password" placeholder="Password" />
         </Form.Group>
 
-        <Button variant="primary" type="submit" onClick={handleSubmit}>
+        <Button variant="secondary" type="submit" onClick={handleSubmit}>
           Register
         </Button>
       </Form>

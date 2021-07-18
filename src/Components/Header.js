@@ -38,13 +38,13 @@ function Header() {
 
   return (
     <div style={styles.header}>
-      <Link to="/react_ecommerce" style={styles.title}>
+      <Link to="/" style={styles.title}>
         My Fake E-Commerce
       </Link>
       <Link to="/Register" style={{ ...styles.separator, ...styles.loginAndCart }}>
         Register
       </Link>
-      <div style={styles.loginAndCart}>Shopping Cart</div>
+      <Link to="ShoppingCart" style={styles.loginAndCart}>Shopping Cart</Link>
     </div>
   );
 }
