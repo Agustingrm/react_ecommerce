@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import LoadingSpinner from "../Components/LoadingSpinner";
-import Product from "../Components/Product.";
+import Product from "../Components/Product";
 
 
 function HomePage() {

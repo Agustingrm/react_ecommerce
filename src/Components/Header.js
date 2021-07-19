@@ -1,10 +1,14 @@
-import { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import WebFont from "webfontloader";
 import { Link } from "react-router-dom";
+import EcommerceContext from "../Context/EcommerceContext";
 
 function Header() {
+  const context = useContext(EcommerceContext);
   const styles = {
     header: {
+      position: 'sticky',
+      top: '0px',
       display: "flex",
       alignItems: "center",
       backgroundColor: "black",
@@ -38,13 +42,18 @@ function Header() {
 
   return (
     <div style={styles.header}>
-      <Link to="/" style={styles.title}>
+      <Link to="/react_ecommerce" style={styles.title}>
         My Fake E-Commerce
       </Link>
-      <Link to="/Register" style={{ ...styles.separator, ...styles.loginAndCart }}>
+      <Link to="/Login" style={{ ...styles.separator, ...styles.loginAndCart }}>
+        Login
+      </Link>
+      <Link to="/Register" style={styles.loginAndCart}>
         Register
       </Link>
-      <Link to="ShoppingCart" style={styles.loginAndCart}>Shopping Cart</Link>
+      <Link to="ShoppingCart" style={styles.loginAndCart}>
+        Shopping Cart ({context.shoppingList.length})
+      </Link>
     </div>
   );
 }

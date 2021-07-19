@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
+import EcommerceContext from "../Context/EcommerceContext";
 
 function Product(props) {
   const { title, price, image, id } = props.products;
+  const context = useContext(EcommerceContext);
+
   const style = {
     centerItems: {
       display: "flex",
@@ -30,6 +33,16 @@ function Product(props) {
       color: "inherit",
     },
   };
+
+  const handleAddToCart = (event) => {
+    event.preventDefault();
+    let item = {
+      name: title,
+      price: price,
+    };
+    context.addToCart(item);
+    console.log(context.shoppingList)
+  };
   return (
     <div style={style.border}>
       <div style={style.centerItems}>
@@ -38,9 +51,11 @@ function Product(props) {
       <h2 style={style.h2}>{title}</h2>
       <p>U${price}</p>
       <Button variant="outline-secondary">
-        <Link to={"product/" + id} style={style.linkStyle}>Details</Link>
+        <Link to={"product/" + id} style={style.linkStyle}>
+          Details
+        </Link>
       </Button>
-      <Button variant="success" style={style.buttonSpacing}>
+      <Button variant="success" style={style.buttonSpacing} onClick={handleAddToCart} >
         Add to Cart
       </Button>
     </div>
