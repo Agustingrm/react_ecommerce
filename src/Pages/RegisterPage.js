@@ -21,7 +21,7 @@ function RegisterPage() {
       });
       alert("Registration Successfull");
     } catch (e) {
-      console.log("error" + e);
+      alert(e);
     }
   };
 

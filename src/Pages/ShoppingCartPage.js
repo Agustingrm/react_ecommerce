@@ -9,6 +9,9 @@ function ShoppingCart() {
     margin: {
       margin: "20px 60px 20px 60px",
     },
+    buttonMargin: {
+      marginTop: '20px',
+    }
   };
 
   console.log(context.shoppingList);
@@ -23,7 +26,7 @@ function ShoppingCart() {
             <ShoppingCartComponent product={product} number={number}/>
           ))}
         </div>
-        <Button variant="success">Pay</Button>
+        <Button variant="success" style={style.buttonMargin}>Pay</Button>
       </div>
     );
   }

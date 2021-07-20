@@ -1,6 +1,9 @@
 function Footer() {
   const styles = {
     box: {
+      position: 'absolute',
+      bottom: '0',
+      width: '100%',
       display: "flex",
       backgroundColor: "black",
       height: "40px",

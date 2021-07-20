@@ -6,16 +6,21 @@ function ShoppingCartComponent(props) {
   const context = useContext(EcommerceContext);
   const product = props.product;
   const number = props.number;
+  const style = {
+    buttonMargin: {
+      marginBottom: '20px'
+    }
+  }
 
   const handleClick = () => {
-    context.shoppingList = context.shoppingList.filter((i) => i !== number);
+    context.deleteItemInCart(number)
   };
 
   return (
     <div>
-      <p>{product.name}</p>
-      <p>U${product.price}</p>
-      <Button variant="danger" onClick={handleClick}>
+      <p><strong>Product Name: </strong>{product.name}</p>
+      <p><strong>Price: </strong>U${product.price}</p>
+      <Button variant="danger" style={style.buttonMargin} onClick={handleClick}>
         Delete item
       </Button>
     </div>

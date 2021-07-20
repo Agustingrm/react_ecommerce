@@ -41,7 +41,6 @@ function Product(props) {
       price: price,
     };
     context.addToCart(item);
-    console.log(context.shoppingList)
   };
   return (
     <div style={style.border}>
