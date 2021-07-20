@@ -15,16 +15,14 @@ function LoginPage() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      console.log(form.email);
-      console.log(form.password);
       const responseUser = await firebase.authentication.signInWithEmailAndPassword(form.email, form.password);
-      console.log(responseUser);
       const userInfo = await firebase.db.collection("users").where("userId", "==", responseUser.user.uid).get();
-      console.log("user", userInfo.docs[0]?.data());
       context.loginUser();
       alert("Welcome " + userInfo.docs[0]?.data().fullName);
     } catch (e) {
-      console.log(e);
+      if (e.code == "auth/user-not-found") {
+        alert("User not found");
+      }
     }
   };
   const handleChange = (event) => {
@@ -35,9 +33,8 @@ function LoginPage() {
 
   const handleLogout = () => {
     context.logoutUser();
-  }
-  
-  console.log("userLogin" + context.userLogin);
+  };
+
   if (context.userLogin === false) {
     return (
       <Form style={style.margin}>
