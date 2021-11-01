@@ -35,7 +35,7 @@ function LoginPage() {
     context.logoutUser();
   };
 
-  if (context.userLogin === false) {
+  if (context.userLogin !== true) {
     return (
       <Form style={style.margin}>
         <Form.Group className="mb-3" controlId="formBasicEmail">

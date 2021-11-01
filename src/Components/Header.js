@@ -52,7 +52,7 @@ function Header() {
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ms-auto">
           <Nav.Link>
-            <Link to="/react_ecommerce" style={{ ...styles.separator, ...styles.linksToSections }}>
+            <Link to="/" style={{ ...styles.separator, ...styles.linksToSections }}>
               Products
             </Link>
           </Nav.Link>
