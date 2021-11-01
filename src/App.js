@@ -21,11 +21,11 @@ function App() {
   };
   return (
     <GlobalState>
-      <BrowserRouter>
+      <BrowserRouter basename="/react_ecommerce">
         <div style={style.pageContainer}>
           <div style={style.contentWrap}>
             <Header />
-            <Route path="/react_ecommerce" exact component={HomePage} />
+            <Route path="/" exact component={HomePage} />
             <Route path="/Login" exact component={LoginPage} />
             <Route path="/Register" exact component={RegisterPage} />
             <Route path="/ShoppingCart" exact component={ShoppingCartPage} />
